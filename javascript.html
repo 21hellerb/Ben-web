@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title> JavaScript </title>
+<LINK REL=StyleSheet HREF="Mystyle.css">
+<style>
+button {
+    font-size: 1.1em;
+    background-color: #7FFFD4;
+    color: #B93B8F;
+    border: 2px solid black;
+    box-shadow: 4px 4px 4px #6A287E;
+}
+button:hover, button:focus, button:active { 
+    color: #B93B8F;
+    background-color: #000000;
+    cursor: pointer;
+}
+</style>
+<link rel="shortuct icon" href="images/Billy.png">
+<script>
+	function showAlert() { 
+    var myText = "Warning: You are entering coded property!";
+    alert (myText);
+}
+	function updateTime(){ 
+
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+	
+  if (minutes < 10) { 
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) { 
+    seconds = '0' + seconds;
+  }				
+
+  if (hours >= 12 && hours < 24) { 
+    var timeOfDay = 'pm';
+  }
+  else { 
+    var timeOfDay = 'am'; 
+  }
+				
+  if (hours > 12) { 
+    hours = hours - 12;
+  }
+
+    var currentTime = hours + ':' + minutes + ':' + seconds;    
+    
+    var myClock = document.getElementById('clock');
+	
+    myClock.innerHTML = currentTime;
+}
+  function toggleClock() {  
+    var myClock = document.getElementById('clock');
+
+    var displaySetting = myClock.style.display;
+
+    var clockButton = document.getElementById('clockButton');
+				
+    if (displaySetting == 'block') { 
+      myClock.style.display = 'none';
+      clockButton.innerHTML = 'What Time is it?';
+    }
+    else { 
+      myClock.style.display = 'block';
+      clockButton.innerHTML = 'Hide That Clock';
+    }
+  }  
+</script>
+</head>
+<body onload="setInterval('updateTime()',1000)">
+<br />
+<h1> Javascript </h1>
+	<div id="navigation">
+	<ul>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/index.html"> Home</a></li>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/accessability.html"> Accessability</a></li>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/usability.html">Usability</a></li>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/graphics.html">Graphics</a></li>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/javascript.html">Javascript</a></li>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/tools.html">Tools</a></li>
+	<li> <a class="link" href="file://brsd-jb-fs01/2021$/21HellerB/WebPortfolioFinal_Ben/video.html">Video</a></li>
+	</ul>
+	</div>
+	<br />
+	<button onclick="showAlert()">Warning</button>
+<br />
+<button onclick="toggleClock()" id="clockButton">What Time is it?</button>
+<br />
+<div id="clock">
+</div>
+</body>
+</html>
